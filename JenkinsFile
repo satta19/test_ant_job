@@ -19,13 +19,13 @@ pipeline {
                 sh 'echo $HOME'
                 sh 'ant -file build.xml'
                 }
-	     }
 
-	 stage ('Merge Request Raised') {
-	 steps {
-		echo '\n'
+         stage ('Merge Request Raised') {
+         steps {
                 echo '\n'
-                sh 'curl -i -u satta19:4a371c128254252dda644c752d5e1c1180fce3d5 -d '{ "title": "first_merge_request", "body": "Please pull in the awesome changes", "head": "origin/develop", "base": "origin/master" }' https://api.github.com/repos/satta19/test_ant_job/pulls'
+                echo '\n'
+                sh 'curl -i -u satta19:4a371c128254252dda644c752d5e1c1180fce3d5 -d '{ "title": "first_merge_request", "body": "Please pull in the awesome changes", "hea$
+
      }
   }
 }
