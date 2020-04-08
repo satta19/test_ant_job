@@ -1,7 +1,9 @@
 pipeline {
     agent any
     tools {ant "antHome"}
+
         stages {
+
             stage ('Prepare') {
             steps {
                 echo '\n'
@@ -19,6 +21,7 @@ pipeline {
                 sh 'echo $HOME'
                 sh 'ant -file build.xml'
                 }
+	}
 
          stage ('Merge Request Raised') {
          steps {
