@@ -15,6 +15,7 @@ pipeline {
               echo '\n'
                 echo '\n'
                 echo '****** MERGE REQUEST ********'
+             sh 'git checkout origin/develop'
              sh 'git push -o merge_request.create -o merge_request.target=origin/master'
               }
            }
