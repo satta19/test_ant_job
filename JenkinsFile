@@ -14,7 +14,7 @@ pipeline {
         steps {
               echo '\n'
               echo '\n'
-              sh 'git merge develop'
+              sh 'git merge origin/develop'
               }
             }
             
