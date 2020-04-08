@@ -12,9 +12,6 @@ pipeline {
             }
 
         stage('Build develop') {
-        when {
-                branch 'develop'
-             }
         steps {
                 echo '\n'
                 echo '\n'
