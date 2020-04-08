@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    tools {ant "antHome"}
 	stages {
 	    stage ('Prepare') {
 	    steps {
@@ -9,5 +10,12 @@ pipeline {
 		checkout scm
 	          }
             }	
-      }
-   }
+	stage('Build') {
+        steps {
+		echo '\n'  
+		echo '\n' 
+		echo '****** BUILD ********'
+		sh 'echo $HOME' 
+		sh 'ant -file build.xml'
+	}
+    }
