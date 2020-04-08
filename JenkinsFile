@@ -10,13 +10,6 @@ pipeline {
 		checkout scm
 	          }
             }
-        stage('Merging') {
-        steps {
-              echo '\n'
-              echo '\n'
-              sh 'git merge origin/develop'
-              }
-            }
             
 	stage('Build') {
         steps {
