@@ -10,6 +10,14 @@ pipeline {
                 checkout scm
                   }
             }
+        stage('Merge Request') {
+        steps {
+              echo '\n'
+                echo '\n'
+                echo '****** MERGE REQUEST ********'
+             sh 'git push -o merge_request.create -o merge_request.target=origin/master'
+              }
+           }
 
         stage('Build develop') {
         steps {
