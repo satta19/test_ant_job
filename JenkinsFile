@@ -11,13 +11,17 @@ pipeline {
 	          }
             }	
 	stage('Build') {
+        when {
+		branch 'master'
+	     }
         steps {
 		echo '\n'  
 		echo '\n' 
 		echo '****** BUILD ********'
 		sh 'echo $HOME' 
 		sh 'ant -file build.xml'
-	}
+		}
+              }
+
+	 }
     }
- }
- }
