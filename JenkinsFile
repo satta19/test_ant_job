@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    tools {ant "antHome"}
+        stages {
+            stage ('Prepare') {
+            steps {
+                echo '\n'
+                echo '\n'
+                echo '****** Git Pull ********'
+                checkout scm
+                  }
+            }
+
+        stage('Build develop') {
+        when {
+                branch 'develop'
+             }
+        steps {
+                echo '\n'
+                echo '\n'
+                echo '****** BUILD ********'
+                sh 'echo $HOME'
+                sh 'ant -file build.xml'
+                }
+	     }
+     }
+  }
+
