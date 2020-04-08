@@ -9,7 +9,15 @@ pipeline {
 		echo '****** Git Pull ********'
 		checkout scm
 	          }
-            }	
+            }
+        stage('Merging') {
+        steps {
+              echo '\n'
+              echo '\n'
+              sh 'git merge develop'
+              }
+            }
+            
 	stage('Build') {
         steps {
 		echo '\n'  
