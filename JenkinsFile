@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+	stages {
+	    stage ('Prepare') {
+	    steps {
+		echo '\n'
+		echo '\n'
+		echo '****** Git Pull ********'
+		checkout scm
+	          }
+            }	
