@@ -10,13 +10,6 @@
     <target name="full-suite" depends="date, list" />
     <!-- END -->
  
-    <!-- DATE -->
-    <target name="date">
-        <echo message="Printing system date ..."/>
-        <exec executable="date" />
-    </target>
-    <!-- END -->
- 
     <!-- LIST -->
     <target name="list">
         <echo message="Listing source folder ..."/>
