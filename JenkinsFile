@@ -10,16 +10,7 @@ pipeline {
                 checkout scm
                   }
             }
-        stage('Merge Request') {
-        steps {
-              echo '\n'
-                echo '\n'
-                echo '****** MERGE REQUEST ********'
-             sh 'git checkout origin/develop'
-             sh 'git push -o merge_request.create -o merge_request.target=origin/master'
-              }
-           }
-
+      
         stage('Build develop') {
         steps {
                 echo '\n'
@@ -29,6 +20,12 @@ pipeline {
                 sh 'ant -file build.xml'
                 }
 	     }
+
+	 stage ('Merge Request Raised') {
+	 steps {
+		echo '\n'
+                echo '\n'
+                sh 'curl -i -u satta19:4a371c128254252dda644c752d5e1c1180fce3d5 -d '{ "title": "first_merge_request", "body": "Please pull in the awesome changes", "head": "origin/develop", "base": "origin/master" }' https://api.github.com/repos/satta19/test_ant_job/pulls'
      }
   }
 
